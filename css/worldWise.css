@@ -19,15 +19,16 @@
 body {
   background-color: #f6f9fc;
   color: #333;
+  font-size: 16px;
 }
 
 /* Layout container */
 #screen {
   width: 100%;
   max-width: 1100px;
-  min-width: 300px; /* Adjust as needed */
-  margin: 50px auto;
-  padding: 40px;
+  min-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
   background: var(--white-color);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -36,22 +37,32 @@ body {
 /* Navigation bar */
 nav {
   background-color: var(--dark-bg-color);
-  padding: 20px 0;
+  padding: 15px 0;
   border-radius: 8px;
-  margin-top: 40px;
+  margin-top: 20px;
+  overflow-x: auto; /* Allow horizontal scrolling on small screens */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 nav ul {
   display: flex;
   justify-content: center;
-  gap: 60px;
+  gap: 30px;
+  padding: 0 15px;
+  white-space: nowrap; /* Prevent wrapping */
+  min-width: min-content; /* Ensure items don't shrink too much */
+}
+
+nav ul li {
+  list-style: none;
 }
 
 nav ul li a {
   color: var(--white-color);
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
   transition: color 0.3s ease;
+  padding: 5px 10px;
 }
 
 nav ul li a:hover,
@@ -64,20 +75,21 @@ nav ul li a.active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 10px;
 }
 
 .date {
   text-align: left;
   font-weight: 700;
-  font-size: 30px;
-  padding: 30px 0;
+  font-size: clamp(18px, 5vw, 30px); /* Responsive font size */
+  padding: 20px 0;
   color: var(--dark-bg-color);
 }
 
 .button {
-  font-size: 30px;
+  font-size: clamp(18px, 5vw, 30px); /* Responsive font size */
   color: var(--dark-bg-color);
+  cursor: pointer;
 }
 
 .button:hover {
@@ -86,19 +98,20 @@ nav ul li a.active {
 
 /* Section-box */
 .section-box {
-  width: auto;
+  width: 100%;
   height: 100%;
-  padding: 0 80px;
+  padding: 0 15px;
   display: flex;
   justify-content: center;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .add-section {
-  min-width: 280px;
-  height: 250px;
-  border-radius: 40px;
+  width: min(90%, 280px); /* Responsive width */
+  height: auto;
+  min-height: 250px;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
   background-color: var(--light-bg-color);
   transition: 0.4s ease-in;
@@ -113,16 +126,17 @@ nav ul li a.active {
 .add-section-title {
   text-align: center;
   color: var(--dark-bg-color);
-  padding-top: 40px;
+  padding-top: 30px;
+  font-size: clamp(16px, 4vw, 20px);
 }
 
 .search {
   margin-top: 20px;
-  width: 80%;
+  width: 90%;
   height: 35px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid var(--border-color); /* <-- fixed line */
+  border: 1px solid var(--border-color);
   border-radius: 40px;
   display: flex;
   justify-content: center;
@@ -151,10 +165,9 @@ nav ul li a.active {
   padding: 8px;
   font-size: 15px;
   color: var(--dark-bg-color);
-  border: #1e1e2f;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  outline: var(--border-color);
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 .search input::placeholder {
@@ -165,7 +178,7 @@ nav ul li a.active {
   color: var(--dark-bg-color);
   font-size: 15px;
   text-align: center;
-  padding: 30px 0;
+  padding: 20px 0;
   font-weight: 500;
   margin-top: 10px;
 }
@@ -186,10 +199,11 @@ nav ul li a.active {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
   z-index: 1;
+  width: 100%;
 }
 
 .box {
@@ -198,40 +212,39 @@ nav ul li a.active {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 30px;
-  gap: 30px;
+  padding: 0 15px;
+  gap: 20px;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .weather-box {
   position: relative;
-  height: 180px;
-  min-width: 260px;
-  border-radius: 40px;
+  height: auto;
+  min-height: 180px;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
   margin-top: 10px;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: #f8f3e2; /* Soft cream instead of yellow */
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.1),    /* subtle main shadow */
-    0 6px 20px rgba(147, 147, 147, 0.3);  /* neutral shadow for depth */
+  background-color: #f8f3e2;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(147, 147, 147, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 5px;
+  padding: 15px 10px;
 }
 
 .weather-box:hover {
   transform: translateY(-4px);
-  box-shadow: 
-    0 6px 10px rgba(0, 0, 0, 0.12),
-    0 8px 30px rgba(231, 224, 209, 0.6); /* softer highlight on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 8px 30px rgba(231, 224, 209, 0.6);
 }
 
-
 .name {
-  padding-left: 40px;
-  width: 220px;
+  padding: 10px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -240,17 +253,18 @@ nav ul li a.active {
 }
 
 .city-name {
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 20px);
+  word-break: break-word;
 }
 
 .weather-temp {
-  font-size: 60px;
+  font-size: clamp(36px, 8vw, 60px);
 }
 
 .weather-icon {
-  padding: 0 20px;
-  width: 220px;
-  height: 170px;
+  padding: 10px;
+  width: 50%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,32 +272,20 @@ nav ul li a.active {
 
 .weather-icon img {
   width: 100%;
-}
-
-@media screen and (min-width: 430px) {
-  #screen {
-    height: 100%;
-    margin: 50px auto;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.494);
-  }
-
-  nav {
-    border-radius: 0 0 20px 20px;
-  }
+  max-width: 150px;
 }
 
 .delete-btn {
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 10px;
   background-color: var(--dark-bg-color);
   color: var(--white-color);
   border: none;
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -295,4 +297,71 @@ nav ul li a.active {
 
 .delete-btn:hover {
   background-color: #717187;
+}
+
+/* Media Queries for responsive design */
+@media screen and (max-width: 768px) {
+  #screen {
+    margin: 10px auto;
+    padding: 15px;
+  }
+  
+  .section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .weather-box {
+    min-width: unset;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav ul {
+    gap: 15px;
+  }
+  
+  nav ul li a {
+    font-size: 14px;
+  }
+  
+  .date {
+    padding: 15px 0;
+  }
+  
+  .section-box {
+    padding: 0 5px;
+  }
+  
+  .weather-box {
+    padding: 10px 5px;
+  }
+  
+  .name {
+    padding: 5px;
+  }
+  
+  .delete-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+}
+
+/* Small phone screens */
+@media screen and (max-width: 360px) {
+  .weather-box {
+    flex-direction: column;
+  }
+  
+  .name, .weather-icon {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .weather-icon {
+    order: -1; /* Move icon above text on very small screens */
+  }
 }

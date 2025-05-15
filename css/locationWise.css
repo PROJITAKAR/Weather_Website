@@ -38,6 +38,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 60px;
+  list-style: none;
 }
 
 nav ul li a {
@@ -68,29 +69,30 @@ h3 {
   margin-right: auto;
   border-radius: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 1px 2px 2px #1e1e2f;
   background-color: #fff;
 }
 
 .search-icon {
+  margin-left: 27px;
   width: 18px;
   height: 50px;
   display: flex;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-}
-
-.search-icon i {
   font-size: 18px;
   color: #1e1e2f;
 }
 
+
 .search input {
+  margin-right: 10px;
   width: 85%;
   padding: 10px;
+  padding-left: 20px;
   font-size: 15px;
   color: #1e1e2f;
   border: none;
@@ -169,7 +171,7 @@ h3 {
 .error-message p,
 .message p {
   width: 100%;
-  height: 500px;
+  height: 50px; /* Reduced to avoid taking up too much space */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,12 +179,51 @@ h3 {
   font-weight: 600;
   font-size: 20px;
   text-align: center;
-  padding: 40px;
+  padding: 10px;
 }
 
+/* Updated .message section */
 .message {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
+
+/* Optional: style the image */
+.message img {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Optional: vertically center if needed */
+  padding: 20px;
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.error-message img{
+  margin-top: 10px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 
 .return {
   display: none;
@@ -200,7 +241,6 @@ h3 {
 /* Media Queries */
 @media screen and (min-width: 430px) {
   #screen {
-    
     height: 100%;
     margin: 50px auto;
     border-radius: 20px;
@@ -230,3 +270,185 @@ h3 {
   }
 }
 
+/* New Responsive Media Queries */
+@media screen and (max-width: 991px) {
+  #screen {
+    max-width: 90%;
+    padding: 30px;
+  }
+  
+  .search {
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  .weather-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 15px;
+  }
+  
+  h3 {
+    font-size: 26px;
+  }
+  
+  .search input {
+    width: 80%;
+  }
+  
+  .weather-box {
+    max-width: 450px;
+  }
+  
+  .name {
+    width: 250px;
+    padding-left: 30px;
+  }
+  
+  .weather-icon {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .weather-temp {
+    font-size: 50px;
+  }
+  
+  .desc-box {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #screen {
+    padding: 20px;
+    margin: 30px auto;
+  }
+  
+  nav {
+    padding: 15px 0;
+  }
+  
+  nav ul {
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    font-size: 16px;
+  }
+  
+  h3 {
+    font-size: 22px;
+    padding: 20px 0;
+  }
+  
+  .search {
+    height: 45px;
+  }
+  
+  .search-icon {
+    margin-left: 15px;
+  }
+  
+  .weather-box {
+    height: auto;
+    flex-direction: column;
+    padding: 20px 0;
+  }
+  
+  .name {
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .weather-icon {
+    padding: 0;
+    width: 180px;
+    height: 180px;
+  }
+  
+  .weather-desc {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .desc-box {
+    width: 250px;
+  }
+  .weather-icon img{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  #screen {
+    margin: 20px auto;
+    padding: 15px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    padding: 15px 0;
+  }
+  
+  nav ul {
+    gap: 15px;
+  }
+  
+  nav ul li a {
+    font-size: 14px;
+  }
+  
+  .search {
+    height: 40px;
+  }
+  
+  .search input {
+    font-size: 14px;
+  }
+  
+  .weather-temp {
+    font-size: 40px;
+  }
+  
+  .city-name {
+    font-size: 18px;
+  }
+  
+  .desc-box {
+    width: 90%;
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  nav ul {
+    gap: 10px;
+  }
+  
+  nav ul li a {
+    font-size: 12px;
+  }
+  
+  .search-icon {
+    margin-left: 10px;
+  }
+  
+  .weather-temp {
+    font-size: 35px;
+  }
+  
+  .weather-icon {
+    width: 150px;
+    height: 150px;
+  }
+}
