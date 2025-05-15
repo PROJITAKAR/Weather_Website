@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Weather Map</title>
+  <link rel="icon" type="png" href="img/icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/map.css" />
+
+</head>
+<body>
+  <div id="screen">
+    <div class="page-title">Interactive Weather Map</div>
+    
+    <!-- Map Container -->
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+    
+    <!-- Controls Container -->
+    <div class="controls-container">
+      <!-- Search and Map Controls -->
+      <div class="control-panel">
+        <div class="search-box">
+          <h3>Search Location</h3>
+          <input type="text" id="location-search" placeholder="Enter city or location...">
+          <button onclick="searchLocation()">Search</button>
+        </div>
+        
+        <div class="control-group">
+          <h3>Map Type</h3>
+          <label>
+            <input type="radio" name="basemap" value="Esri World Imagery" checked> Satellite
+          </label>
+          <label>
+            <input type="radio" name="basemap" value="OpenStreetMap"> OpenStreetMap
+          </label>
+          <label>
+            <input type="radio" name="basemap" value="Stamen Terrain"> Terrain
+          </label>
+          <label>
+            <input type="radio" name="basemap" value="Stamen Toner"> Black & White
+          </label>
+          <label>
+            <input type="radio" name="basemap" value="CartoDB Dark"> Dark Mode
+          </label>
+        </div>
+        
+        <div class="control-group">
+          <h3>Weather Layer</h3>
+          <label>
+            <input type="radio" name="weather" value="temp_new" checked> Temperature
+          </label>
+          <label>
+            <input type="radio" name="weather" value="precipitation_new"> Precipitation
+          </label>
+          <label>
+            <input type="radio" name="weather" value="clouds_new"> Cloud Cover
+          </label>
+          <label>
+            <input type="radio" name="weather" value="pressure_new"> Pressure
+          </label>
+          <label>
+            <input type="radio" name="weather" value="wind_new"> Wind Speed
+          </label>
+        </div>
+      </div>
+      
+      <!-- Legend Panel -->
+      <div class="legend-panel">
+        <h3>Legend</h3>
+        <div id="legend-content">
+          <!-- Legend items will be inserted here -->
+        </div>
+      </div>
+    </div>
+    <nav>
+    <ul>
+      <li>
+        <a href="index.html"
+          ><i class="fa-solid fa-location-arrow"></i
+        ></a>
+      </li>
+      <li>
+        <a class="active" href="map.html"
+          ><i class="fa-solid fa-map"></i
+        ></a>
+      </li>
+      <li>
+        <a href="locationWise.html"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+      </li>
+      <li>
+        <a href="worldWise.html"><i class="fa-solid fa-earth-americas"></i></a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
